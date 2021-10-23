@@ -1,8 +1,13 @@
 public class MainClass {
 
     public static void main(String[] args) {
-        System.out.println("kcjl");
-        System.out.println("Dva");
+
+        char chars[] = {'a', 'b', 'c'};
+        String s = new String(chars, 1, 2);
+        System.out.println(s);
+
+        String s2 = new String("Четыре" + (2+2));
+        System.out.println(s2);
 
     }
 }
