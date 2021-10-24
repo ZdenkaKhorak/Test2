@@ -1,13 +1,38 @@
-public class MainClass {
+import java.awt.*;
+import java.awt.event.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class MainClass extends Frame {
+
+    String msg ="";
+
+    String keyState = "";
+
+    public MainClass(){
+        addMouseListener(new MyMouseAdapter(this));
+        addWindowListener(new MyWindowAdapter());
+    }
+
 
     public static void main(String[] args) {
 
-        char chars[] = {'a', 'b', 'c'};
-        String s = new String(chars, 1, 2);
-        System.out.println(s);
+        MainClass appwin = new MainClass();
+        appwin.setSize(new Dimension(200, 150));
+        appwin.setTitle("Demo");
+        appwin.setVisible(true);
 
-        String s2 = new String("Четыре" + (2+2));
-        System.out.println(s2);
+    }
 
+
+    public void paint(Graphics g) {
+        g.drawString(msg, 20, 100);
+    }
+}
+
+class MyWindowAdapter extends WindowAdapter{
+    public void windowClosing(WindowEvent e){
+        System.exit(0);
     }
 }
